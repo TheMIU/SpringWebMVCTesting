@@ -4,6 +4,13 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/01_SpringWebMVC" />
     <file type="web" url="file://$PROJECT_DIR$/02_Controller" />
+    <file type="web" url="file://$PROJECT_DIR$/02_NormalControllers" />
+    <file type="web" url="file://$PROJECT_DIR$/03_RESTControllers" />
+    <file type="web" url="file://$PROJECT_DIR$/04_MappingSpec" />
+    <file type="web" url="file://$PROJECT_DIR$/O10_Controllers" />
+    <file type="web" url="file://$PROJECT_DIR$/O11_REST_Controllers" />
+    <file type="web" url="file://$PROJECT_DIR$/O12_Mapping_Spec" />
+    <file type="web" url="file://$PROJECT_DIR$/RESTControllers" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -11,6 +18,13 @@
         <option value="$PROJECT_DIR$/01_SpringWebMVC/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/02_Controller/pom.xml" />
+        <option value="$PROJECT_DIR$/O10_Controllers/pom.xml" />
+        <option value="$PROJECT_DIR$/O11_REST_Controllers/pom.xml" />
+        <option value="$PROJECT_DIR$/O12_Mapping_Spec/pom.xml" />
+        <option value="$PROJECT_DIR$/02_NormalControllers/pom.xml" />
+        <option value="$PROJECT_DIR$/RESTControllers/pom.xml" />
+        <option value="$PROJECT_DIR$/03_RESTControllers/pom.xml" />
+        <option value="$PROJECT_DIR$/04_MappingSpec/pom.xml" />
       </list>
     </option>
   </component>

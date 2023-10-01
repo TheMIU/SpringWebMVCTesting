@@ -7,10 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="01_SpringWebMVC" />
-        <module name="02_Controller" />
+        <module name="03_RESTControllers" />
+        <module name="04_MappingSpec" />
+        <module name="02_NormalControllers" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="02_Controller" target="8" />
+      <module name="O10_Controllers" target="8" />
+      <module name="O11_REST_Controllers" target="8" />
+      <module name="O12_Mapping_Spec" target="8" />
+      <module name="RESTControllers" target="8" />
       <module name="SpringWebMVCTesting" target="8" />
     </bytecodeTargetLevel>
   </component>
