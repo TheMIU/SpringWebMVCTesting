@@ -26,15 +26,13 @@ public class F_Request_Headers_Controller {
     //there will be an error called unsupported media type (415)
 
 
-    //to invoke this you have to send content-type=application/json from the fornt
-    //end
+    //to invoke this you have to send content-type=application/json from the frontend
     @GetMapping(consumes = "application/json")
     public String getMapping1() {
         return "Get Mapping Invoked 1";
     }
 
-    //To invoke this you have to send content-type=text/html from the front
-    //end
+    //To invoke this you have to send content-type=text/html from the frontend
     @GetMapping(consumes = "text/html")
     public String getMapping2() {
         return "Get Mapping Invoked 2";
@@ -46,6 +44,11 @@ public class F_Request_Headers_Controller {
     @GetMapping(produces = "text/html")
     public String getMapping3() {
         return "Get Mapping Invoked 3";
+    }
+
+    @GetMapping(produces = "application/json")
+    public String getMapping4() {
+        return "Get Mapping Invoked 4";
     }
 
     //The three ways that we can use to narrow down a request
