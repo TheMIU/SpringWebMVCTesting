@@ -25,6 +25,7 @@ public class F_Request_Headers_Controller {
     //if the request is sent without content type header then
     //there will be an error called unsupported media type (415)
 
+/*
 
     //to invoke this you have to send content-type=application/json from the frontend
     @GetMapping(consumes = "application/json")
@@ -55,4 +56,12 @@ public class F_Request_Headers_Controller {
     //01. Path Variables
     //02. Query String parameters
     //03. Request headers
+*/
+
+    //==========accept header and content type header at once
+    @GetMapping(headers = {"Content-Type=application/json","Accept=text/html"})
+    public String getMapping5() {
+        return "Get Mapping Invoked 5";
+    }
+
 }

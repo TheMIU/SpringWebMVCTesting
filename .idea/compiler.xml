@@ -7,11 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="05_Send_Recive_Data" />
+        <module name="02_NormalControllers" />
+        <module name="O14_Spring_Data_JPA" />
         <module name="01_SpringWebMVC" />
         <module name="03_RESTControllers" />
         <module name="04_MappingSpec" />
-        <module name="O13_Spring_with_JSON" />
-        <module name="02_NormalControllers" />
+        <module name="06_Exception_Handling" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +21,7 @@
       <module name="O10_Controllers" target="8" />
       <module name="O11_REST_Controllers" target="8" />
       <module name="O12_Mapping_Spec" target="8" />
+      <module name="O13_Spring_with_JSON" target="8" />
       <module name="RESTControllers" target="8" />
       <module name="SpringWebMVCTesting" target="8" />
     </bytecodeTargetLevel>
