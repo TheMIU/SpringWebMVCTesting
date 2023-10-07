@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="05_Send_Recive_Data" />
+        <module name="07_Spring_Data_JPA" />
         <module name="02_NormalControllers" />
         <module name="O14_Spring_Data_JPA" />
         <module name="01_SpringWebMVC" />

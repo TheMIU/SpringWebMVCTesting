@@ -1,0 +1,10 @@
+package lk.ijse.spring.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerController {
+    public CustomerController() {
+        System.out.println("CustomerController");
+    }
+}
