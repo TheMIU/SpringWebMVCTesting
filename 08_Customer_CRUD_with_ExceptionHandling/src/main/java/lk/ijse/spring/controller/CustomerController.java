@@ -4,6 +4,7 @@ package lk.ijse.spring.controller;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
+import lk.ijse.spring.service.CustomerService;
 import lk.ijse.spring.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -19,10 +20,7 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
-    CustomerRepo repo;
-
-    @Autowired
-    ModelMapper mapper;
+    private CustomerService service;
 
     public CustomerController() {
         System.out.println("CustomerController");
@@ -32,45 +30,33 @@ public class CustomerController {
     // get all
     @GetMapping
     public ResponseUtil getAllCustomers() {
-        List<Customer> all = repo.findAll();
-        ArrayList<CustomerDTO> customerDTOS = mapper.map(all, new TypeToken<ArrayList<CustomerDTO>>() {
-        }.getType());
-        return new ResponseUtil("Ok", "Successfully Loaded", customerDTOS);
+        return new ResponseUtil("Ok", "Successfully Loaded", service.getAllCustomers());
     }
 
     // find
     @GetMapping(params = {"id"})
     public ResponseUtil findCustomer(String id) {
-        if (!repo.existsById(id)) throw new RuntimeException("Id not exists !");
-
-        CustomerDTO map = mapper.map(repo.findById(id).get(), CustomerDTO.class);
-        return new ResponseUtil("Ok", "Successfully Searched", map);
+        return new ResponseUtil("Ok", "Successfully Searched", service.searchCustomer(id));
     }
 
     // add
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto) {
-        if (repo.existsById(dto.getId())) throw new RuntimeException("Error, Already added!");
-
-        repo.save(mapper.map(dto, Customer.class));
-        return new ResponseUtil("Ok", "Successfully Added", dto);
+        service.saveCustomer(dto);
+        return new ResponseUtil("Ok", "Successfully Added", null);
     }
 
     // update
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto) {
-        if (!repo.existsById(dto.getId())) throw new RuntimeException("Id not exists !");
-
-        repo.save(mapper.map(dto, Customer.class));
-        return new ResponseUtil("Ok", "Successfully Updated", dto);
+        service.updateCustomer(dto);
+        return new ResponseUtil("Ok", "Successfully Updated", null);
     }
 
     // delete
     @DeleteMapping(params = {"id"})
     public ResponseUtil deleteCustomer(String id) {
-        if (!repo.existsById(id)) throw new RuntimeException("Id not exists !");
-
-        repo.deleteById(id);
+        service.deleteCustomer(id);
         return new ResponseUtil("Ok", "Successfully Deleted", id);
     }
 }
