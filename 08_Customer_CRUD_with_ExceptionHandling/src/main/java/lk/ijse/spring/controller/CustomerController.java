@@ -8,6 +8,7 @@ import lk.ijse.spring.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class CustomerController {
         System.out.println("CustomerController");
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     // get all
     @GetMapping
     public ResponseUtil getAllCustomers() {
