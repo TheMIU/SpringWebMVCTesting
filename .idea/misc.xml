@@ -10,6 +10,7 @@
     <file type="web" url="file://$PROJECT_DIR$/05_Send_Recive_Data" />
     <file type="web" url="file://$PROJECT_DIR$/06_Exception_Handling" />
     <file type="web" url="file://$PROJECT_DIR$/07_Spring_Data_JPA" />
+    <file type="web" url="file://$PROJECT_DIR$/08_Customer_CRUD_with_ExceptionHandling" />
     <file type="web" url="file://$PROJECT_DIR$/O10_Controllers" />
     <file type="web" url="file://$PROJECT_DIR$/O11_REST_Controllers" />
     <file type="web" url="file://$PROJECT_DIR$/O12_Mapping_Spec" />
@@ -35,6 +36,7 @@
         <option value="$PROJECT_DIR$/06_Exception_Handling/pom.xml" />
         <option value="$PROJECT_DIR$/07_Spring_Data_JPA/pom.xml" />
         <option value="$PROJECT_DIR$/O12_Mapping_Spec/pom.xml" />
+        <option value="$PROJECT_DIR$/08_Customer_CRUD_with_ExceptionHandling/pom.xml" />
       </list>
     </option>
   </component>

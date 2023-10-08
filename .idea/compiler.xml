@@ -13,6 +13,7 @@
         <module name="01_SpringWebMVC" />
         <module name="03_RESTControllers" />
         <module name="04_MappingSpec" />
+        <module name="08_Customer_CRUD_with_ExceptionHandling" />
         <module name="06_Exception_Handling" />
       </profile>
     </annotationProcessing>
