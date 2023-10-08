@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
+@CrossOrigin // Enable Cross-Origin Resource Sharing (CORS) for this controller
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -34,9 +34,9 @@ public class CustomerController {
 
     // find
     @GetMapping(params = {"id"})
-    public CustomerDTO findCustomer(String id){
+    public CustomerDTO findCustomer(String id) {
         Customer c = repo.findById(id).get();
-        return new CustomerDTO(c.getId(),c.getName(),c.getAddress());
+        return new CustomerDTO(c.getId(), c.getName(), c.getAddress());
     }
 
     // add
@@ -48,14 +48,16 @@ public class CustomerController {
 
     // update
     @PutMapping
-    public void updateCustomer(@RequestBody CustomerDTO dto){
-        Customer customer = new Customer(dto.getId(), dto.getName(), dto.getAddress());
-        repo.save(customer);
+    public void updateCustomer(@RequestBody CustomerDTO dto) {
+        if (repo.findById(dto.getId()).isPresent()) { // check if customer exists
+            Customer customer = new Customer(dto.getId(), dto.getName(), dto.getAddress());
+            repo.save(customer);
+        }
     }
 
     // delete
     @DeleteMapping(params = {"id"})
-    public void deleteCustomer(String id){
+    public void deleteCustomer(String id) {
         repo.deleteById(id);
     }
 }

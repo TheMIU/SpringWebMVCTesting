@@ -25,7 +25,6 @@
         <option value="$PROJECT_DIR$/02_Controller/pom.xml" />
         <option value="$PROJECT_DIR$/O10_Controllers/pom.xml" />
         <option value="$PROJECT_DIR$/O11_REST_Controllers/pom.xml" />
-        <option value="$PROJECT_DIR$/O12_Mapping_Spec/pom.xml" />
         <option value="$PROJECT_DIR$/02_NormalControllers/pom.xml" />
         <option value="$PROJECT_DIR$/RESTControllers/pom.xml" />
         <option value="$PROJECT_DIR$/03_RESTControllers/pom.xml" />
@@ -35,6 +34,7 @@
         <option value="$PROJECT_DIR$/05_Send_Recive_Data/pom.xml" />
         <option value="$PROJECT_DIR$/06_Exception_Handling/pom.xml" />
         <option value="$PROJECT_DIR$/07_Spring_Data_JPA/pom.xml" />
+        <option value="$PROJECT_DIR$/O12_Mapping_Spec/pom.xml" />
       </list>
     </option>
   </component>
