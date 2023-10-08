@@ -37,6 +37,34 @@
         .table thead {
             background-color: #18122B; /* Darker header background color */
         }
+
+        /* Apply styles to the search bar */
+        .form-group {
+            margin-top: 20px; /* Add some spacing */
+        }
+
+        #searchInput {
+            background-color: #18122B;
+            color: #B6EADA;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            width: 70%;
+            margin-right: 10px;
+        }
+
+        /*#searchById {
+            background-color: #5B8FB9;
+            color: #03001C;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #searchById:hover {
+            background-color: #2F4F77; !* Darker background color on hover *!
+        }*/
     </style>
 </head>
 <body>
@@ -72,6 +100,12 @@
 
         <!-- Customer Table Column -->
         <div class="col-md-6">
+            <div class="form-group">
+                <!-- Add a search bar -->
+                <input type="text" id="searchInput" placeholder="Search customers by id">
+                <button type="button" class="btn btn-dark" id="searchById">Search</button>
+            </div>
+
             <table class="table">
                 <thead>
                 <tr>
@@ -97,6 +131,7 @@
     getAllCustomers();
     bindRowClickEvents();
 
+    // get all
     $("#btnGetAll").click(function () {
         getAllCustomers();
     });
@@ -113,17 +148,44 @@
                     let id = cus.id;
                     let name = cus.name;
                     let address = cus.address;
-                    let row = "<tr><td>"+id+"</td><td>"+name+"</td><td>"+address+"</td></tr>";
+                    let row = "<tr><td>" + id + "</td><td>" + name + "</td><td>" + address + "</td></tr>";
                     $("#tblCustomer").append(row);
                 }
                 setTextFields("", "", "");
             },
-            error: function (error) {
-                alert(error.message);
+            error: function () {
+                alert("error");
                 setTextFields("", "", "");
             }
         });
     }
+
+    // find
+    $("#searchById").click(function () {
+        console.log("invoked")
+        $("#tblCustomer").empty();
+        let id = $('#searchInput').val();
+
+        $.ajax({
+            url: baseUrl + 'customer?id=' + id,
+            method: "GET",
+            success: function (customer) {
+                console.log(customer)
+                let id = customer.id;
+                let name = customer.name;
+                let address = customer.address;
+                let row = "<tr><td>" + id + "</td><td>" + name + "</td><td>" + address + "</td></tr>";
+                $("#tblCustomer").append(row);
+                $('#searchInput').val("");
+            },
+            error: function () {
+                alert("error");
+                setTextFields("", "", "");
+                $('#searchInput').val("");
+                getAllCustomers();
+            }
+        });
+    });
 
     // bind table row values to text field on click
     function bindRowClickEvents() {
