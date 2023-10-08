@@ -52,19 +52,6 @@
             width: 70%;
             margin-right: 10px;
         }
-
-        /*#searchById {
-            background-color: #5B8FB9;
-            color: #03001C;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        #searchById:hover {
-            background-color: #2F4F77; !* Darker background color on hover *!
-        }*/
     </style>
 </head>
 <body>
@@ -142,7 +129,9 @@
         $.ajax({
             url: baseUrl + 'customer',
             method: "GET",
-            success: function (customers) {
+            success: function (response) {
+                console.log(response);
+                let customers = response.data;
                 for (let i in customers) {
                     let cus = customers[i];
                     let id = cus.id;
@@ -153,8 +142,9 @@
                 }
                 setTextFields("", "", "");
             },
-            error: function () {
-                alert("error");
+            error: function (error) {
+                console.log(error);
+                alert(error.responseJSON.message);
                 setTextFields("", "", "");
             }
         });
@@ -162,15 +152,15 @@
 
     // find
     $("#searchById").click(function () {
-        console.log("invoked")
         $("#tblCustomer").empty();
         let id = $('#searchInput').val();
 
         $.ajax({
             url: baseUrl + 'customer?id=' + id,
             method: "GET",
-            success: function (customer) {
-                console.log(customer)
+            success: function (response) {
+                console.log(response);
+                let customer = response.data;
                 let id = customer.id;
                 let name = customer.name;
                 let address = customer.address;
@@ -178,8 +168,9 @@
                 $("#tblCustomer").append(row);
                 $('#searchInput').val("");
             },
-            error: function () {
-                alert("error");
+            error: function (error) {
+                console.log(error);
+                alert(error.responseJSON.message);
                 setTextFields("", "", "");
                 $('#searchInput').val("");
                 getAllCustomers();
@@ -216,12 +207,14 @@
             url: baseUrl + 'customer',
             method: "POST",
             data: formData,
-            success: function () {
-                alert("successfully added!");
+            success: function (response) {
+                console.log(response);
+                alert(response.message);
                 getAllCustomers();
             },
-            error: function () {
-                alert("failed");
+            error: function (error) {
+                console.log(error);
+                alert(error.responseJSON.message);
             }
         });
     });
@@ -247,12 +240,14 @@
                 contentType: "application/json",
                 data: JSON.stringify(customer),
 
-                success: function (res) {
-                    alert("successfully updated!");
+                success: function (response) {
+                    console.log(response);
+                    alert(response.message);
                     getAllCustomers();
                 },
-                error: function () {
-                    alert("failed");
+                error: function (error) {
+                    console.log(error);
+                    alert(error.responseJSON.message);
                 }
             });
         }
@@ -268,12 +263,14 @@
                 url: baseUrl + 'customer?id=' + id,
                 method: 'DELETE',
 
-                success: function () {
-                    alert("successfully deleted!");
+                success: function (response) {
+                    console.log(response);
+                    alert(response.message);
                     getAllCustomers();
                 },
-                error: function () {
-                    alert("failed");
+                error: function (error) {
+                    console.log(error);
+                    alert(error.responseJSON.message);
                 }
             });
         }
