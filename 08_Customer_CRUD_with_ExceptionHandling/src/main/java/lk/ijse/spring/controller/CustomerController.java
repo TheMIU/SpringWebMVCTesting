@@ -4,6 +4,8 @@ package lk.ijse.spring.controller;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,9 @@ public class CustomerController {
     @Autowired
     CustomerRepo repo;
 
+    @Autowired
+    ModelMapper mapper;
+
     public CustomerController() {
         System.out.println("CustomerController");
     }
@@ -25,10 +30,7 @@ public class CustomerController {
     @GetMapping
     public List<CustomerDTO> getAllCustomers() {
         List<Customer> all = repo.findAll();
-        List<CustomerDTO> customerDTOS = new ArrayList<>();
-        for (Customer c : all) {
-            customerDTOS.add(new CustomerDTO(c.getId(), c.getName(), c.getAddress()));
-        }
+        ArrayList<CustomerDTO> customerDTOS= mapper.map(all,new TypeToken<ArrayList<CustomerDTO>>(){}.getType());
         return customerDTOS;
     }
 
@@ -36,22 +38,23 @@ public class CustomerController {
     @GetMapping(params = {"id"})
     public CustomerDTO findCustomer(String id) {
         Customer c = repo.findById(id).get();
-        return new CustomerDTO(c.getId(), c.getName(), c.getAddress());
+        CustomerDTO map = mapper.map(c, CustomerDTO.class);
+        return map;
     }
 
     // add
     @PostMapping
     public void saveCustomer(@ModelAttribute CustomerDTO dto) {
-        Customer customer = new Customer(dto.getId(), dto.getName(), dto.getAddress());
-        repo.save(customer);
+        Customer map = mapper.map(dto, Customer.class);
+        repo.save(map);
     }
 
     // update
     @PutMapping
     public void updateCustomer(@RequestBody CustomerDTO dto) {
         if (repo.findById(dto.getId()).isPresent()) { // check if customer exists
-            Customer customer = new Customer(dto.getId(), dto.getName(), dto.getAddress());
-            repo.save(customer);
+            Customer map = mapper.map(dto, Customer.class);
+            repo.save(map);
         }
     }
 
