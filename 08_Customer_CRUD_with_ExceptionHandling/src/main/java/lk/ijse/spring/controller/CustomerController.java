@@ -43,14 +43,14 @@ public class CustomerController {
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto) {
         service.saveCustomer(dto);
-        return new ResponseUtil("Ok", "Successfully Added", null);
+        return new ResponseUtil("Ok", "Successfully Added", dto);
     }
 
     // update
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto) {
         service.updateCustomer(dto);
-        return new ResponseUtil("Ok", "Successfully Updated", null);
+        return new ResponseUtil("Ok", "Successfully Updated", dto);
     }
 
     // delete

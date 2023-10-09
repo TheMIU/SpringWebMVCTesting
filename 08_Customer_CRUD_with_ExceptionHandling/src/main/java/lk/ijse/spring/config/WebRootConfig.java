@@ -5,7 +5,7 @@ import org.springframework.context.annotation.*;
 
 @Configuration
 @Import(JPAConfig.class) // Import the JPA configuration class
-@ComponentScan(basePackages = "lk.ijse.spring.service.impl")
+@ComponentScan(basePackages = "lk.ijse.spring.service")
 public class WebRootConfig {
     public WebRootConfig() {
         System.out.println("WebRootConfig");
