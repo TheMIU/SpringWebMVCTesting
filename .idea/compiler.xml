@@ -15,17 +15,28 @@
         <module name="04_MappingSpec" />
         <module name="08_Customer_CRUD_with_ExceptionHandling" />
         <module name="06_Exception_Handling" />
+        <module name="09_QueryMethods_Queries_and_Testing" />
+        <module name="10_SpringBoot_Testing" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="02_Controller" target="8" />
+      <module name="09_SpringBoot_Testing" target="8" />
       <module name="O10_Controllers" target="8" />
       <module name="O11_REST_Controllers" target="8" />
       <module name="O12_Mapping_Spec" target="8" />
       <module name="O13_Spring_with_JSON" target="8" />
       <module name="O14_Spring_Data_JPA" target="8" />
       <module name="RESTControllers" target="8" />
+      <module name="SpringBootTest" target="8" />
       <module name="SpringWebMVCTesting" target="8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="09_SpringBoot_Testing" options="-parameters" />
+      <module name="O14_Spring_Data_JPA" options="-parameters" />
+      <module name="SpringBootTest" options="-parameters" />
+    </option>
   </component>
 </project>
